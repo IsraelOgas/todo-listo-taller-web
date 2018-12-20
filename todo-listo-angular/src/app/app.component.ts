@@ -53,8 +53,12 @@ export class AppComponent implements OnInit {
     })  
   }
 
-  ngOnInit() {
+  cerrarSesion() {
+    window.localStorage.clear();
+    window.location.reload();
+  }
 
+  ngOnInit() {
     this.options = {
       layers: [
         L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 18, attribution: '...' })
@@ -125,7 +129,7 @@ export class AppComponent implements OnInit {
     this.tareaService.crearTarea(this.newTarea, this.user_token).subscribe(_ => {
       console.log('Creacion Tarea OK');
       this.refrescarTareas();
-
+      window.location.reload();
     })
   }
 

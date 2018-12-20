@@ -110,6 +110,8 @@
 
       </div>
     </div>
+    <button (click)="cerrarSesion()">Cerrar Sesion</button>
+    <app-tareas-mapa></app-tareas-mapa>
   </div>
 
   <div *ngIf="!loggedIn">
@@ -131,5 +133,5 @@
     </form>
   </div>
 
-  <app-tareas-mapa></app-tareas-mapa>
+
 </app-layout>

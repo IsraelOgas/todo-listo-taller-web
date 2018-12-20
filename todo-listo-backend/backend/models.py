@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 class Estado(models.Model):
     nombre = models.CharField(max_length=100)
@@ -17,6 +18,7 @@ class Tarea(models.Model):
     estado        = models.ForeignKey(Estado, on_delete=models.CASCADE, default=1)
     lat           = models.CharField(max_length=50, null = True, blank=True)
     lng           = models.CharField(max_length=50, null = True, blank=True)
+    user          = models.ForeignKey(User, related_name='tareas', on_delete=models.CASCADE, blank=True)
 
     @property
     def nombre_estado(self):

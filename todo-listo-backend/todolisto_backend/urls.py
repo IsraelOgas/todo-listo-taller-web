@@ -21,7 +21,7 @@ class TareaSerializer(serializers.HyperlinkedModelSerializer):
                     
     class Meta:
         model = Tarea
-        fields = ('id', 'titulo', 'descripcion', 'fecha_inicio', 'fecha_termino', 'estado', 'nombre_estado')        
+        fields = ('id', 'titulo', 'descripcion', 'fecha_inicio', 'fecha_termino', 'estado', 'nombre_estado', "lat", "lng")        
 
 class TareaViewSet(viewsets.ModelViewSet):
     authentication_classes = (authentication.TokenAuthentication,)

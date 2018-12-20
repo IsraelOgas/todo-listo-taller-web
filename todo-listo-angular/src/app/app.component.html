@@ -1,7 +1,4 @@
 <app-layout>
-
-  
-
   <div *ngIf="loggedIn">
     <div class="row">
       <div class="col-md-4" style="border: 1px solid black;">
@@ -37,13 +34,15 @@
                 La descripcion debe tener entre 10 y 100 caracteres
               </div>
               
-
+              <!-- <input [value]="newTarea.lat" [(ngModel)]="newTarea.lat" name="lat" ngDefaultControl hidden/>
+              <input [value]="newTarea.lng" [(ngModel)]="newTarea.lng" name="lng" ngDefaultControl hidden/> -->
+              
               <button [disabled]="f.invalid"
                       type="submit"
                       class="btn btn-primary">
                       Crear Tarea
               </button>
-            </form>    
+
 
             <div style="height: 300px;"
               leaflet 
@@ -52,7 +51,7 @@
               [leafletLayers]="markers"
               >
   </div>
-
+</form>    
       </div>
 
       <div class="col-md-8" style="border: 1px solid black;">
@@ -132,4 +131,5 @@
     </form>
   </div>
 
+  <app-tareas-mapa></app-tareas-mapa>
 </app-layout>

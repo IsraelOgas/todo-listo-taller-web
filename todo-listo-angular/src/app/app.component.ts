@@ -17,6 +17,10 @@ export class AppComponent implements OnInit {
   tareaSeleccionada: Tarea;
   tareas: Array<Tarea>;
   newTarea: Tarea;
+  location = {
+    lat : String,
+    lng : String
+  }
 
   username: string;
   password: string;
@@ -26,7 +30,7 @@ export class AppComponent implements OnInit {
 
   constructor(public tareaService: TareaService, private http: HttpClient) {
     this.tareas = [];
-    this.newTarea = new Tarea(null, null, null);
+    this.newTarea = new Tarea(null, null, null, null, null, 0);
     let maybe_user_token = window.localStorage.getItem('user_token');
     console.log(`ls user token: ${maybe_user_token}`);
     if(maybe_user_token) {
@@ -71,6 +75,7 @@ export class AppComponent implements OnInit {
     this.tareaService.getTareas(this.user_token)
       .subscribe((ts: Array<Tarea>) => {
         this.tareas = ts;
+        console.log(this.tareas);
       });
   }
 
@@ -78,6 +83,13 @@ export class AppComponent implements OnInit {
     console.log(`Click: ${evt}`);
     console.log(Object.keys(evt));
     console.log(evt['latlng']);
+    console.log(evt['latlng'].lat);
+    console.log(evt['latlng'].lng);
+    this.newTarea.lat = evt['latlng'].lat;
+    this.newTarea.lng = evt['latlng'].lng;
+
+    console.log(this.newTarea)
+    
     this.addMarker(evt['latlng']);
   }
 
@@ -126,75 +138,3 @@ export class AppComponent implements OnInit {
   }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-export class AppComponent implements OnInit {
-  title = 'Todo Listo!';
-  estadoTareas = EstadoTarea;
-  tareaSeleccionada: Tarea;
-  tareas: Array<Tarea>;
-  newTarea: ITarea;
-  estado2str = estado2str;
-
-  constructor(private tareaService: TareaService) {
-    this.tareas = [];
-    this.newTarea = {
-      titulo: '',
-      descripcion: ''
-    };
-  }
-
-  ngOnInit(): void {
-    // Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-    // Add 'implements OnInit' to the class.
-    this.tareaService.getTareas()
-        .subscribe(tareas => {
-          this.tareas = tareas;
-        });
-  }
-
-  seleccionarTarea(t: Tarea) {
-    this.tareaSeleccionada = t;
-  }
-
-  crearTarea() {
-    console.log(this.newTarea);
-    // TODO: Add loading controller
-    this.tareaService.crearTarea(this.newTarea);
-  }
-
-  guardarTarea(t: Tarea) {
-    console.log(`Guardando tarea: ${t}`);
-  }
-}
-*/

@@ -1,0 +1,8 @@
+<h4 class="text-center pb-2">Mapa con las tareas georeferenciadas</h4>
+<div style="height: 60vh; margin-bottom: 1em"
+  leaflet 
+  [leafletOptions]="options"
+  (leafletClick)="mapClick($event)"
+  [leafletLayers]="markers"
+  >
+</div>

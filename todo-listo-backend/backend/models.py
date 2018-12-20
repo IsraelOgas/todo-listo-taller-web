@@ -7,7 +7,7 @@ class Estado(models.Model):
         return self.nombre
     
     def __unicode__(self):
-        return self.nombre    
+        return self.nombre
 
 class Tarea(models.Model):
     titulo        = models.CharField(max_length=100)
@@ -15,9 +15,9 @@ class Tarea(models.Model):
     fecha_inicio  = models.DateTimeField(null = True, blank=True)
     fecha_termino = models.DateTimeField(null = True, blank=True)
     estado        = models.ForeignKey(Estado, on_delete=models.CASCADE, default=1)
+    lat           = models.CharField(max_length=50, null = True, blank=True)
+    lng           = models.CharField(max_length=50, null = True, blank=True)
 
     @property
     def nombre_estado(self):
         return self.estado.nombre
-
-

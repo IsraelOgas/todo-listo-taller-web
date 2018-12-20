@@ -22,7 +22,9 @@ export class TareaService {
       'descripcion': t.descripcion,
       'estado': t.estado,
       'fecha_inicio': t.fecha_inicio,
-      'fecha_termino': t.fecha_termino
+      'fecha_termino': t.fecha_termino,
+      'lat': t.lat,
+      'lng': t.lng,
     }, httpOptions)
   }
 
@@ -38,7 +40,9 @@ export class TareaService {
       'descripcion': t.descripcion,
       'fecha_inicio': t.fecha_inicio,
       'fecha_termino': t.fecha_termino,
-      'estado': t.estado
+      'estado': t.estado,
+      'lat': t.lat,
+      'lng': t.lng,
     }, httpOptions)
   }
 

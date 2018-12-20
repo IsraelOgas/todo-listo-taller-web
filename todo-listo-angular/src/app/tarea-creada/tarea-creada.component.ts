@@ -12,8 +12,8 @@ export class TareaCreadaComponent extends TareaBase {
   actualizarTarea(nuevoTitulo, nuevaDesc, nuevaFechaInicio, nuevaFechaTermino) {
     this.tarea.titulo = nuevoTitulo;
     this.tarea.descripcion = nuevaDesc;
-    this.tarea.fecha_inicio = nuevaFechaInicio;
-    this.tarea.fecha_termino = nuevaFechaTermino;
+    this.tarea.fecha_inicio = new Date(nuevaFechaInicio);
+    this.tarea.fecha_termino = new Date(nuevaFechaTermino);
     console.log(this.tarea);
     this.tareaActualizada.emit(this.tarea);
   }

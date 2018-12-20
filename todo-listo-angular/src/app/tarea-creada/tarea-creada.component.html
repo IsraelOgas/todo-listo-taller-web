@@ -9,11 +9,15 @@
     </p>
     <p contenteditable="true" #fechaI>
       <!-- {{ tarea.fecha_inicio }} -->
-      {{ tarea.fecha_inicio | date }}
+      <!-- {{ tarea.fecha_inicio | date:'yyyy-MM-dd'}} -->
+      {{ tarea.fecha_inicio | date:'dd-MM-yyyy'}}
+      <!-- {{ tarea.fecha_inicio | date:'yyyy-MM-dd hh:mm' }} -->
     </p>
     <p contenteditable="true" #fechaT>
       <!-- {{ tarea.fecha_termino }} -->
-      {{ tarea.fecha_termino | date }}
+      <!-- {{ tarea.fecha_termino | date:'yyyy-MM-dd'}} -->
+      {{ tarea.fecha_termino | date:'dd-MM-yyyy'}}
+      <!-- {{ tarea.fecha_termino | date:'yyyy-MM-dd hh:mm' }} -->
     </p>
   </div>
 

@@ -79,7 +79,7 @@ export class AppComponent implements OnInit {
     this.tareaService.getTareas(this.user_token)
       .subscribe((ts: Array<Tarea>) => {
         this.tareas = ts;
-        console.log(this.tareas);
+        //console.log(this.tareas);
       });
   }
 
@@ -118,6 +118,7 @@ export class AppComponent implements OnInit {
   actualizarTarea(t: Tarea) {
     console.log(`La tarea ${t} fue actualizada!`);
     this.tareaService.actualizarTarea(t, this.user_token).subscribe(_ => { });
+    //window.location.reload();
   }
 
   seleccionarTarea(t: Tarea) {
@@ -129,7 +130,7 @@ export class AppComponent implements OnInit {
     this.tareaService.crearTarea(this.newTarea, this.user_token).subscribe(_ => {
       console.log('Creacion Tarea OK');
       this.refrescarTareas();
-      window.location.reload();
+      //window.location.reload();
     })
   }
 
